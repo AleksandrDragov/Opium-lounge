@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CUSTOMER
+  ADMIN
+}
+
+enum Zone {
+  MAIN
+  BAR
+  VIP
+}
+
+enum BookingStatus {
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+model User {
+  id           Int       @id @default(autoincrement())
+  name         String
+  email        String    @unique
+  phone        String?
+  passwordHash String
+  role         Role      @default(CUSTOMER)
+  bookings     Booking[]
+  createdAt    DateTime  @default(now())
+}
+
+model LoungeTable {
+  id        Int       @id @default(autoincrement())
+  number    Int       @unique
+  capacity  Int
+  zone      Zone
+  positionX Int
+  positionY Int
+  shape     String    @default("round")
+  bookings  Booking[]
+}
+
+model Booking {
+  id        Int           @id @default(autoincrement())
+  userId    Int
+  tableId   Int
+  startsAt  DateTime
+  guests    Int
+  comment   String?
+  status    BookingStatus @default(CONFIRMED)
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  table     LoungeTable    @relation(fields: [tableId], references: [id])
+  createdAt DateTime       @default(now())
+
+  @@index([tableId, startsAt])
+  @@index([userId, startsAt])
+}
+
+model MenuCategory {
+  id        Int        @id @default(autoincrement())
+  name      String
+  slug      String     @unique
+  sortOrder Int        @default(0)
+  items     MenuItem[]
+}
+
+model MenuItem {
+  id          Int          @id @default(autoincrement())
+  categoryId  Int
+  name        String
+  description String
+  price       Int
+  imageKey    String
+  isAvailable Boolean      @default(true)
+  category    MenuCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+}
