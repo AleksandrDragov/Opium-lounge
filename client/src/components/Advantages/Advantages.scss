@@ -1,0 +1,71 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.perks {
+  border-block: 1px solid $line;
+  background: #0d0a0f;
+}
+
+.perks-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  border: 1px solid $line;
+}
+
+.perk {
+  min-height: 330px;
+  padding: 34px;
+  border-right: 1px solid $line;
+  transition: .25s;
+}
+
+.perk:last-child {
+  border: 0;
+}
+
+.perk:hover {
+  background: linear-gradient(160deg,rgba(255,60,172,.12),transparent);
+}
+
+.perk-top {
+  display: flex;
+  justify-content: space-between;
+  color: $pink;
+}
+
+.perk-top span {
+  color: #524b54;
+  font-size: 11px;
+}
+
+.perk h3 {
+  @include display;
+  margin: 90px 0 14px;
+  font-size: 27px;
+}
+
+.perk p {
+  color: $muted;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .perks-grid {
+    grid-template-columns: 1fr;
+  }
+  .perk {
+    min-height: 230px;
+    border-right: 0;
+    border-bottom: 1px solid $line;
+  }
+  .perk h3 {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .perk {
+    padding: 25px;
+  }
+}

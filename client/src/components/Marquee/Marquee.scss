@@ -1,0 +1,29 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.marquee {
+  overflow: hidden;
+  border-block: 1px solid $line;
+  padding: 16px 0;
+  background: $pink;
+  color: #13070f;
+  transform: rotate(-1deg) scale(1.02);
+}
+
+.marquee div {
+  @include display;
+  width: max-content;
+  font-size: 19px;
+  word-spacing: 18px;
+  animation: marquee 24s linear infinite;
+}
+
+.marquee b {
+  color: white;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-25%);
+  }
+}

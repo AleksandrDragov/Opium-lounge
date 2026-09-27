@@ -1,0 +1,30 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 24px;
+  text-align: center;
+}
+
+.empty-state>span {
+  @include display;
+  color: rgba(255,255,255,.08);
+  font-size: 160px;
+}
+
+.empty-state h1 {
+  margin: -40px 0 10px;
+  font-size: 55px;
+}
+
+.empty-state p {
+  color: $muted;
+}
+
+.empty-state .button {
+  margin-top: 20px;
+}

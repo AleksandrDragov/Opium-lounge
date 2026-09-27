@@ -1,0 +1,145 @@
+@use '../../styles/variables' as *;
+
+.floor-wrap {
+  border: 1px solid $line;
+  background: $panel;
+}
+
+.floor-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 78px;
+  padding: 16px 22px;
+  border-bottom: 1px solid $line;
+}
+
+.floor-toolbar>div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.floor-toolbar b {
+  font-size: 14px;
+}
+
+.floor-toolbar span {
+  color: $muted;
+  font-size: 10px;
+}
+
+.legend {
+  display: flex;
+  gap: 14px;
+}
+
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid #777;
+}
+
+.legend .available {
+  border-color: #f1e8f3;
+}
+
+.legend .reserved {
+  opacity: .3;
+  background: #777;
+}
+
+.legend .selected {
+  border-color: $pink;
+  background: $pink;
+  box-shadow: 0 0 8px $pink;
+}
+
+.floor-plan {
+  position: relative;
+  min-height: 575px;
+  overflow: hidden;
+  background: linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px),#0a080b;
+  background-size: 30px 30px;
+}
+
+.zone {
+  position: absolute;
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.zone>span {
+  position: absolute;
+  left: 10px;
+  top: 9px;
+  color: #4f4851;
+  font-size: 8px;
+  letter-spacing: .16em;
+}
+
+.zone--bar {
+  left: 3%;
+  top: 8%;
+  width: 22%;
+  height: 74%;
+  border-radius: 60px 0 0 60px;
+  background: rgba(255,255,255,.015);
+}
+
+.zone--main {
+  left: 28%;
+  top: 8%;
+  width: 47%;
+  height: 74%;
+}
+
+.zone--vip {
+  right: 3%;
+  top: 8%;
+  width: 20%;
+  height: 74%;
+  background: rgba(143,76,255,.035);
+}
+
+.restroom, .entrance {
+  position: absolute;
+  bottom: 5%;
+  color: #625a65;
+  font-size: 9px;
+  letter-spacing: .13em;
+}
+
+.restroom {
+  right: 6%;
+}
+
+.entrance {
+  left: 44%;
+}
+
+@media (max-width: 600px) {
+  .floor-wrap {
+    border-inline: 0;
+  }
+  .floor-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .floor-plan {
+    min-height: 500px;
+  }
+  .zone>span {
+    font-size: 6px;
+  }
+  .legend {
+    flex-wrap: wrap;
+  }
+}

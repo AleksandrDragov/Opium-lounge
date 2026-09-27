@@ -1,0 +1,17 @@
+.brand-logo-image {
+  display: block;
+  flex: none;
+  width: 215px;
+  height: 58px;
+  background: url('../../assets/opium-eclipse-logo.png') -39px -40px / 293px 147px no-repeat;
+  mix-blend-mode: screen;
+}
+
+@media (max-width: 600px) {
+  .brand-logo-image {
+    width: 180px;
+    height: 49px;
+    background-size: 245px 123px;
+    background-position: -33px -34px;
+  }
+}

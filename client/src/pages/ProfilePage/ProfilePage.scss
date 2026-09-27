@@ -1,0 +1,115 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.profile-page {
+  padding-top: 155px;
+  padding-bottom: 110px;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding-bottom: 55px;
+  border-bottom: 1px solid $line;
+}
+
+.profile-header h1 {
+  margin: 0;
+  font-size: clamp(60px,9vw,118px);
+  line-height: .85;
+}
+
+.profile-header>div>p:last-child {
+  margin: 22px 0 0;
+  color: $muted;
+}
+
+.text-button {
+  border: 0;
+  border-bottom: 1px solid $line;
+  padding: 8px 0;
+  color: $muted;
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.text-button:hover {
+  color: $pink;
+}
+
+.profile-section {
+  padding-top: 58px;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 28px;
+}
+
+.section-title h2 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.booking-list {
+  display: grid;
+  gap: 12px;
+}
+
+.no-bookings {
+  border: 1px dashed $line;
+  padding: 55px;
+  text-align: center;
+}
+
+.no-bookings>span {
+  @include display;
+  color: rgba(255,255,255,.08);
+  font-size: clamp(45px,8vw,90px);
+}
+
+.no-bookings>p {
+  color: $muted;
+}
+
+.history-list p {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $line;
+  padding: 17px 0;
+}
+
+.history-list span {
+  color: $muted;
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .profile-page {
+    padding-top: 120px;
+  }
+  .profile-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .profile-header h1 {
+    font-size: 59px;
+  }
+  .section-title {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .no-bookings {
+    padding: 35px 15px;
+  }
+  .no-bookings>span {
+    font-size: 48px;
+  }
+}

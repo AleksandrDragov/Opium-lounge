@@ -4,14 +4,20 @@ import bcrypt from 'bcryptjs';
 const prisma = new PrismaClient();
 
 const tables = [
-  { number: 1, capacity: 2, zone: 'BAR' as const, positionX: 12, positionY: 24, shape: 'round' },
-  { number: 2, capacity: 2, zone: 'BAR' as const, positionX: 12, positionY: 50, shape: 'round' },
-  { number: 3, capacity: 4, zone: 'MAIN' as const, positionX: 38, positionY: 26, shape: 'round' },
-  { number: 4, capacity: 4, zone: 'MAIN' as const, positionX: 58, positionY: 26, shape: 'round' },
-  { number: 5, capacity: 6, zone: 'MAIN' as const, positionX: 38, positionY: 58, shape: 'wide' },
-  { number: 6, capacity: 6, zone: 'MAIN' as const, positionX: 61, positionY: 58, shape: 'wide' },
-  { number: 7, capacity: 8, zone: 'VIP' as const, positionX: 83, positionY: 24, shape: 'vip' },
-  { number: 8, capacity: 10, zone: 'VIP' as const, positionX: 83, positionY: 61, shape: 'vip' },
+  { number: 1, capacity: 2, zone: 'BAR' as const, positionX: 12, positionY: 20, shape: 'round' },
+  { number: 2, capacity: 2, zone: 'BAR' as const, positionX: 12, positionY: 39, shape: 'round' },
+  { number: 3, capacity: 2, zone: 'BAR' as const, positionX: 12, positionY: 58, shape: 'round' },
+  { number: 4, capacity: 2, zone: 'BAR' as const, positionX: 12, positionY: 77, shape: 'round' },
+  { number: 5, capacity: 4, zone: 'MAIN' as const, positionX: 38, positionY: 20, shape: 'round' },
+  { number: 6, capacity: 4, zone: 'MAIN' as const, positionX: 64, positionY: 20, shape: 'round' },
+  { number: 7, capacity: 4, zone: 'MAIN' as const, positionX: 38, positionY: 39, shape: 'round' },
+  { number: 8, capacity: 4, zone: 'MAIN' as const, positionX: 64, positionY: 39, shape: 'round' },
+  { number: 9, capacity: 4, zone: 'MAIN' as const, positionX: 38, positionY: 58, shape: 'round' },
+  { number: 10, capacity: 4, zone: 'MAIN' as const, positionX: 64, positionY: 58, shape: 'round' },
+  { number: 11, capacity: 4, zone: 'MAIN' as const, positionX: 38, positionY: 77, shape: 'round' },
+  { number: 12, capacity: 4, zone: 'MAIN' as const, positionX: 64, positionY: 77, shape: 'round' },
+  { number: 13, capacity: 8, zone: 'VIP' as const, positionX: 87, positionY: 30, shape: 'vip' },
+  { number: 14, capacity: 10, zone: 'VIP' as const, positionX: 87, positionY: 67, shape: 'vip' },
 ];
 
 const menu = [

@@ -1,0 +1,66 @@
+@use '../../styles/variables' as *;
+
+.table-spot {
+  position: absolute;
+  z-index: 3;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c9c1cc;
+  border-radius: 50%;
+  background: #141016;
+  cursor: pointer;
+  transform: translate(-50%,-50%);
+  transition: .2s;
+}
+
+.table-spot:hover {
+  color: $pink;
+  border-color: $pink;
+  box-shadow: 0 0 20px rgba(255,60,172,.35);
+}
+
+.table-spot b {
+  font-size: 14px;
+}
+
+.table-spot small {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: $muted;
+  font-size: 8px;
+}
+
+.table-spot--vip {
+  width: 88px;
+  height: 68px;
+  border-radius: 8px;
+  border-color: $purple;
+}
+
+.table-spot.is-selected {
+  color: white;
+  border-color: $pink;
+  background: linear-gradient(135deg,#b7197c,#5f1c80);
+  box-shadow: 0 0 26px rgba(255,60,172,.5);
+}
+
+.table-spot.is-reserved, .table-spot.is-too-small {
+  opacity: .2;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .table-spot {
+    width: 46px;
+    height: 46px;
+  }
+  .table-spot--vip {
+    width: 62px;
+    height: 55px;
+  }
+}

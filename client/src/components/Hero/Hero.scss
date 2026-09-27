@@ -1,0 +1,215 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.hero {
+  position: relative;
+  min-height: 850px;
+  height: 100vh;
+  overflow: hidden;
+  border-bottom: 1px solid $line;
+  background: radial-gradient(circle at 65% 45%, rgba(129,24,115,.28), transparent 35%), linear-gradient(100deg,#080609 42%,#180f1a 100%);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, $bg 0%, transparent 35%), linear-gradient(0deg, $bg 0%, transparent 28%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 4;
+  padding-top: clamp(190px,25vh,250px);
+}
+
+.hero h1 {
+  max-width: 890px;
+  margin: 0 0 26px;
+  font-size: clamp(72px,10vw,150px);
+  line-height: .78;
+}
+
+.hero h1 em {
+  -webkit-text-stroke-color: rgba(255,255,255,.58);
+}
+
+.hero-copy {
+  max-width: 520px;
+  color: #c0b8c2;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  margin-top: 38px;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 34px;
+  margin-top: 70px;
+  color: $muted;
+  font-size: 12px;
+}
+
+.hero-meta span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.hero-meta svg {
+  color: $pink;
+}
+
+.hero-art {
+  position: absolute;
+  z-index: 2;
+  right: -2vw;
+  top: 80px;
+  width: 52vw;
+  height: calc(100% - 80px);
+  overflow: hidden;
+  border-left: 1px solid rgba(255,255,255,.08);
+  transform: skew(-5deg);
+  background: radial-gradient(ellipse at 47% 60%, rgba(255,26,160,.55), transparent 4%, rgba(121,30,117,.23) 23%, transparent 48%), repeating-linear-gradient(115deg,transparent 0 28px,rgba(255,255,255,.025) 29px 30px), #100a12;
+}
+
+.hero-art::before {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 70%;
+  left: 28%;
+  top: 14%;
+  border: 4px solid rgba(255,255,255,.13);
+  border-radius: 48% 48% 10% 10%;
+  box-shadow: 0 0 80px rgba(255,60,172,.3), inset 0 0 50px rgba(143,76,255,.2);
+  transform: rotate(9deg);
+}
+
+.hero-art::after {
+  content: attr(data-tagline);
+  @include display;
+  position: absolute;
+  right: 5%;
+  bottom: 11%;
+  color: rgba(255,255,255,.06);
+  font-size: 9vw;
+  transform: rotate(-11deg);
+  white-space: nowrap;
+}
+
+.hero-art span {
+  @include display;
+  position: absolute;
+  top: 12%;
+  left: 15%;
+  color: rgba(255,255,255,.045);
+  font-size: 12vw;
+  writing-mode: vertical-rl;
+}
+
+.hero-art i {
+  position: absolute;
+  top: 20%;
+  right: 7%;
+  color: $pink;
+  font-family: cursive;
+  font-size: 20px;
+  transform: rotate(13deg);
+}
+
+.hero-orb {
+  position: absolute;
+  z-index: 3;
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+.hero-orb--one {
+  width: 5px;
+  height: 5px;
+  right: 31%;
+  top: 37%;
+  background: white;
+  box-shadow: 0 0 40px 15px $pink;
+}
+
+.hero-orb--two {
+  width: 3px;
+  height: 3px;
+  right: 17%;
+  top: 64%;
+  background: white;
+  box-shadow: 0 0 50px 18px $purple;
+}
+
+.scroll-label {
+  position: absolute;
+  z-index: 6;
+  right: 32px;
+  bottom: 88px;
+  color: #807884;
+  font-size: 9px;
+  letter-spacing: .25em;
+  writing-mode: vertical-rl;
+}
+
+.hero-art {
+  background: linear-gradient(90deg,rgba(8,6,10,.34),rgba(8,6,10,.08)), url('../../assets/hero-lounge.jpg') center/cover;
+}
+
+.hero-art::before {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .hero-art {
+    right: -25vw;
+    width: 83vw;
+    opacity: .7;
+  }
+  .hero h1 {
+    font-size: clamp(70px,13vw,118px);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 760px;
+    height: 100svh;
+  }
+  .hero-content {
+    padding-top: 170px;
+  }
+  .hero h1 {
+    font-size: clamp(59px,19vw,88px);
+    line-height: .82;
+  }
+  .hero-copy {
+    font-size: 14px;
+  }
+  .hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .hero-meta {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 45px;
+  }
+  .hero-art {
+    right: -65vw;
+    width: 140vw;
+  }
+  .scroll-label {
+    display: none;
+  }
+}

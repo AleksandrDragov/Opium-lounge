@@ -1,0 +1,96 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.vip h2 {
+  margin: 0;
+  font-size: clamp(50px,7vw,95px);
+  line-height: .9;
+}
+
+.vip-copy>p {
+  color: $muted;
+  line-height: 1.8;
+}
+
+.vip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8%;
+  align-items: center;
+}
+
+.vip-visual {
+  position: relative;
+  height: 590px;
+  background: radial-gradient(circle at 55% 55%,rgba(125,36,166,.42),transparent 32%), linear-gradient(135deg,#151019,#09070b);
+  border: 1px solid $line;
+}
+
+.vip-visual::before, .vip-visual::after {
+  content: '';
+  position: absolute;
+  border: 1px solid rgba(255,255,255,.09);
+}
+
+.vip-visual::before {
+  inset: 8%;
+  border-radius: 50% 50% 4% 4%;
+}
+
+.vip-visual::after {
+  inset: 20% 14% 0;
+  border-bottom: 0;
+}
+
+.vip-tag {
+  @include display;
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 48%;
+  color: $pink;
+  font-size: 88px;
+  line-height: .75;
+  text-align: center;
+  transform: translate(-50%,-50%) rotate(-8deg);
+  text-shadow: 0 0 30px rgba(255,60,172,.5);
+}
+
+.vip-visual>span {
+  position: absolute;
+  left: 24px;
+  bottom: 20px;
+  color: $muted;
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.vip-copy .button {
+  margin-top: 26px;
+}
+
+.vip-visual {
+  background: linear-gradient(0deg,rgba(8,6,10,.43),rgba(8,6,10,.12)), url('../../assets/vip-room.jpg') center/cover;
+}
+
+@media (max-width: 900px) {
+  .vip {
+    grid-template-columns: 1fr;
+  }
+  .vip-copy {
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .vip h2 {
+    font-size: 48px;
+  }
+  .vip-visual {
+    height: 410px;
+  }
+  .vip-tag {
+    font-size: 65px;
+  }
+}

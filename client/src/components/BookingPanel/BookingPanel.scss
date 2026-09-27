@@ -1,0 +1,81 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.booking-panel {
+  border: 1px solid $line;
+  background: $panel;
+}
+
+.booking-panel {
+  padding: 28px;
+}
+
+.booking-panel h2 {
+  margin: 0 0 28px;
+  font-size: 28px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 12px;
+}
+
+.selected-table {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 26px 0 18px;
+  border: 1px solid rgba(255,60,172,.35);
+  padding: 16px;
+  background: rgba(255,60,172,.06);
+}
+
+.selected-table div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.selected-table span, .selected-table small {
+  color: $muted;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.selected-table strong {
+  @include display;
+  color: transparent;
+  -webkit-text-stroke: 1px $pink;
+  font-size: 40px;
+}
+
+.selection-hint {
+  margin: 26px 0 18px;
+  border: 1px dashed $line;
+  padding: 20px;
+  color: $muted;
+  font-size: 11px;
+  text-align: center;
+}
+
+.fine-print {
+  margin: 14px 0 0;
+  color: #6d6670;
+  font-size: 9px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .booking-panel {
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .booking-panel {
+    border-inline: 0;
+  }
+}

@@ -1,19 +1,19 @@
+import './styles/main.scss';
 import { StrictMode, lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createBrowserRouter, createHashRouter, RouterProvider } from 'react-router-dom';
 import { AuthProvider } from './app/AuthContext';
-import { Layout } from './components/Layout';
-import { LoadingPage } from './components/LoadingPage';
+import { Layout } from './components/Layout/Layout';
+import { LoadingPage } from './components/LoadingPage/LoadingPage';
 import './i18n';
-import './styles/main.scss';
 
-const HomePage = lazy(() => import('./pages/HomePage').then((module) => ({ default: module.HomePage })));
-const MenuPage = lazy(() => import('./pages/MenuPage').then((module) => ({ default: module.MenuPage })));
-const BookingPage = lazy(() => import('./pages/BookingPage').then((module) => ({ default: module.BookingPage })));
-const ProfilePage = lazy(() => import('./pages/ProfilePage').then((module) => ({ default: module.ProfilePage })));
-const AuthPage = lazy(() => import('./pages/AuthPage').then((module) => ({ default: module.AuthPage })));
-const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then((module) => ({ default: module.NotFoundPage })));
+const HomePage = lazy(() => import('./pages/HomePage/HomePage').then((module) => ({ default: module.HomePage })));
+const MenuPage = lazy(() => import('./pages/MenuPage/MenuPage').then((module) => ({ default: module.MenuPage })));
+const BookingPage = lazy(() => import('./pages/BookingPage/BookingPage').then((module) => ({ default: module.BookingPage })));
+const ProfilePage = lazy(() => import('./pages/ProfilePage/ProfilePage').then((module) => ({ default: module.ProfilePage })));
+const AuthPage = lazy(() => import('./pages/AuthPage/AuthPage').then((module) => ({ default: module.AuthPage })));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage').then((module) => ({ default: module.NotFoundPage })));
 
 declare const __GITHUB_PAGES__: boolean;
 const createRouter = __GITHUB_PAGES__ ? createHashRouter : createBrowserRouter;

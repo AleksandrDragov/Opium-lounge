@@ -1,0 +1,46 @@
+@use '../../styles/variables' as *;
+
+.menu-page section.container {
+  padding-block: 48px 110px;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin-bottom: 48px;
+}
+
+.filters button {
+  flex: 0 0 auto;
+  border: 1px solid $line;
+  padding: 13px 20px;
+  color: $muted;
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.filters button.active, .filters button:hover {
+  border-color: $pink;
+  color: white;
+  background: rgba(255,60,172,.12);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 22px;
+}
+
+@media (max-width: 600px) {
+  .menu-page section.container {
+    padding-top: 28px;
+  }
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}

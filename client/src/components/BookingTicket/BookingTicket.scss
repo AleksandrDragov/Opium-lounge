@@ -1,0 +1,93 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.booking-ticket {
+  display: grid;
+  grid-template-columns: 110px 1fr auto;
+  align-items: center;
+  min-height: 135px;
+  border: 1px solid $line;
+  background: $panel;
+}
+
+.booking-ticket.is-cancelled {
+  opacity: .42;
+}
+
+.ticket-date {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px dashed $line;
+}
+
+.ticket-date b {
+  @include display;
+  font-size: 50px;
+  line-height: 1;
+}
+
+.ticket-date span {
+  color: $pink;
+  font-size: 10px;
+  letter-spacing: .16em;
+}
+
+.ticket-main {
+  padding: 24px;
+}
+
+.ticket-main p {
+  margin: 0 0 8px;
+  color: #54d998;
+  font-size: 9px;
+  letter-spacing: .15em;
+}
+
+.ticket-main h3 {
+  margin: 0 0 14px;
+  font-size: 18px;
+}
+
+.ticket-main>span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 18px;
+  color: $muted;
+  font-size: 11px;
+}
+
+.booking-ticket>button {
+  margin-right: 25px;
+  border: 0;
+  border-bottom: 1px solid $line;
+  padding: 7px 0;
+  color: $muted;
+  background: transparent;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.booking-ticket>button:hover {
+  color: $pink;
+}
+
+@media (max-width: 600px) {
+  .booking-ticket {
+    grid-template-columns: 78px 1fr;
+  }
+  .ticket-date b {
+    font-size: 38px;
+  }
+  .ticket-main {
+    padding: 18px;
+  }
+  .booking-ticket>button {
+    grid-column: 2;
+    width: fit-content;
+    margin: 0 0 18px 18px;
+  }
+}

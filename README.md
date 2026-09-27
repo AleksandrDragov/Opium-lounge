@@ -33,3 +33,55 @@ GitHub Pages serves static files only. The Pages version is a preview: menu and 
 - Webpack 5, SCSS
 - Node.js, Express, Prisma, SQLite
 - JWT in an HTTP-only cookie and bcrypt password hashing
+
+## Frontend structure
+
+Components and pages follow the same folder-per-component pattern as `building-project`, using TypeScript and SCSS:
+
+```text
+client/src/
+├── app/                       # Authentication context and hooks
+├── assets/                    # Logo and venue images
+├── components/
+│   ├── Header/
+│   │   ├── Header.tsx
+│   │   └── Header.scss
+│   ├── LanguageSwitcher/
+│   ├── Footer/
+│   ├── Hero/
+│   ├── About/
+│   ├── Advantages/
+│   ├── VipRooms/
+│   ├── Gallery/
+│   ├── Contacts/
+│   ├── MenuCard/
+│   ├── FloorPlan/
+│   ├── TableSpot/
+│   ├── BookingPanel/
+│   └── …                     # Each visual component has its own .tsx and .scss
+├── pages/
+│   ├── HomePage/
+│   │   ├── HomePage.tsx
+│   │   └── HomePage.scss
+│   ├── MenuPage/
+│   ├── BookingPage/
+│   ├── AuthPage/
+│   ├── ProfilePage/
+│   └── NotFoundPage/
+├── data/                      # Demo menu and tables used while API data loads
+├── i18n/                      # Configuration and all four translation files
+├── services/                  # Typed API client
+├── styles/
+│   ├── _variables.scss        # Shared colors
+│   ├── _mixins.scss           # Shared typography mixins; no emitted CSS
+│   ├── _base.scss             # Reset, typography and layout utilities
+│   ├── _buttons.scss          # Shared button and link styles
+│   ├── _forms.scss            # Shared form and validation styles
+│   └── main.scss              # Global styles, loaded once by index.tsx
+├── index.tsx                  # Providers and lazy-loaded routes
+└── types.ts                   # Shared domain types
+```
+
+Import a component's stylesheet directly in its `.tsx` file, for example `import './Header.scss'`. Keep its responsive rules in the same SCSS file. Import shared tokens with `@use '../../styles/variables' as *` and mixins with `@use '../../styles/mixins' as *`; these imports do not duplicate global CSS. Component and page imports use explicit paths such as `../../components/Header/Header`.
+
+Pages compose visual components and own API queries, mutations and page state. Shared visual components receive typed props; the authentication context and API helpers do not need styles because they render no layout. The existing Node.js backend and JavaScript Webpack configuration remain in their respective directories.

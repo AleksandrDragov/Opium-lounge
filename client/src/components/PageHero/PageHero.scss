@@ -1,0 +1,30 @@
+@use '../../styles/variables' as *;
+
+.page-hero {
+  padding-top: 95px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid $line;
+}
+
+.page-hero h1 {
+  margin: 0;
+  font-size: clamp(68px,10vw,135px);
+  line-height: .86;
+}
+
+.page-hero>p:last-child {
+  max-width: 550px;
+  margin: 24px 0 0;
+  color: $muted;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .page-hero {
+    padding-top: 72px;
+    padding-bottom: 35px;
+  }
+  .page-hero h1 {
+    font-size: 62px;
+  }
+}

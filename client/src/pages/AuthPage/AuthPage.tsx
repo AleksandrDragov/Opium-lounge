@@ -1,11 +1,12 @@
+import './AuthPage.scss';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useAuth } from '../app/AuthContext';
-import { ArrowIcon } from '../components/Icons';
+import { useAuth } from '../../app/AuthContext';
+import { ArrowIcon } from '../../components/Icons/Icons';
 
 type Values = { name?: string; email: string; phone?: string; password: string };
 

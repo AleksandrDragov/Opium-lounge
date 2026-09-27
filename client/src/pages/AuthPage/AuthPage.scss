@@ -1,0 +1,132 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.auth-tabs button {
+  flex: 0 0 auto;
+  border: 1px solid $line;
+  padding: 13px 20px;
+  color: $muted;
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.auth-tabs button.active {
+  border-color: $pink;
+  color: white;
+  background: rgba(255,60,172,.12);
+}
+
+.auth-page {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.auth-art {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 10%;
+  border-right: 1px solid $line;
+  background: radial-gradient(circle at 50% 45%,rgba(255,60,172,.42),transparent 6%,rgba(117,24,119,.2) 24%,transparent 50%),repeating-linear-gradient(120deg,rgba(255,255,255,.025) 0 2px,transparent 2px 18px),#0d0910;
+}
+
+.auth-art::after {
+  content: 'O';
+  @include display;
+  position: absolute;
+  right: -4%;
+  bottom: -18%;
+  color: rgba(255,255,255,.025);
+  font-size: 40vw;
+}
+
+.auth-art p {
+  @include display;
+  z-index: 2;
+  font-size: clamp(55px,7vw,110px);
+  line-height: .84;
+}
+
+.auth-art p em {
+  color: transparent;
+  -webkit-text-stroke: 1px $pink;
+  font-style: normal;
+}
+
+.auth-art>span {
+  color: $muted;
+  font-size: 9px;
+  letter-spacing: .25em;
+}
+
+.auth-form-wrap {
+  align-self: center;
+  width: min(430px,calc(100% - 48px));
+  margin: 60px auto;
+}
+
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 45px;
+}
+
+.auth-form-wrap h1 {
+  margin: 0 0 32px;
+  font-size: 45px;
+}
+
+.auth-form-wrap label small {
+  display: block;
+  min-height: 15px;
+  padding-top: 4px;
+  color: #ff78b5;
+}
+
+.demo-hint {
+  margin-top: 20px;
+  color: #756d78;
+  font-size: 10px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+  }
+  .auth-art {
+    min-height: 420px;
+    border-right: 0;
+    border-bottom: 1px solid $line;
+  }
+  .auth-art::after {
+    font-size: 70vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .auth-page {
+    padding-top: 68px;
+  }
+  .auth-art {
+    min-height: 330px;
+    padding: 40px 24px;
+  }
+  .auth-art p {
+    font-size: 54px;
+  }
+  .auth-form-wrap {
+    margin-block: 45px;
+  }
+  .auth-form-wrap h1 {
+    font-size: 37px;
+  }
+}

@@ -1,3 +1,4 @@
+import './LoadingPage.scss';
 import { useTranslation } from 'react-i18next';
 
 export function LoadingPage() {

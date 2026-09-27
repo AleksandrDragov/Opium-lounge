@@ -23,7 +23,7 @@ module.exports = {
     new webpack.DefinePlugin({ __GITHUB_PAGES__: JSON.stringify(Boolean(pagesBasePath)) }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public/index.html'),
-      favicon: false,
+      favicon: path.resolve(__dirname, 'public/favicon.svg'),
     }),
   ],
   devServer: {

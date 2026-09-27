@@ -1,0 +1,102 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.menu-card {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  min-height: 230px;
+  border: 1px solid $line;
+  background: $panel;
+  transition: .2s;
+}
+
+.menu-card:hover {
+  border-color: rgba(255,60,172,.5);
+  transform: translateY(-3px);
+}
+
+.menu-image {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 50%,rgba(255,60,172,.55),transparent 15%,rgba(77,20,70,.3) 35%,transparent 65%),#0c090d;
+}
+
+.menu-image::after {
+  content: '';
+  position: absolute;
+  width: 70px;
+  height: 120px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 40% 40% 12% 12%;
+  box-shadow: inset 0 0 25px rgba(255,60,172,.3),0 0 25px rgba(255,60,172,.2);
+}
+
+.menu-image b {
+  @include display;
+  z-index: 2;
+  color: transparent;
+  -webkit-text-stroke: 1px white;
+  font-size: 70px;
+  opacity: .8;
+}
+
+.menu-image span {
+  position: absolute;
+  z-index: 2;
+  left: 12px;
+  top: 12px;
+  font-size: 9px;
+  letter-spacing: .16em;
+}
+
+.menu-image--amber {
+  background-color: #1d1209;
+}
+
+.menu-image--zero, .menu-image--olives {
+  filter: hue-rotate(70deg);
+}
+
+.menu-image--purple, .menu-image--dark {
+  filter: hue-rotate(25deg);
+}
+
+.menu-info {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-content: center;
+  padding: 28px;
+}
+
+.menu-info h2 {
+  margin: 0;
+  font-size: 25px;
+}
+
+.menu-info strong {
+  color: $pink;
+  font-size: 17px;
+}
+
+.menu-info>p {
+  grid-column: 1/-1;
+  margin: 16px 0 0;
+  color: $muted;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .menu-card {
+    grid-template-columns: 120px 1fr;
+    min-height: 190px;
+  }
+  .menu-info {
+    padding: 18px;
+  }
+  .menu-info h2 {
+    font-size: 21px;
+  }
+}
